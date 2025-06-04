@@ -1,4 +1,4 @@
-IMAGE_NAMESPACE?=quay.io/argoprojlabs
+IMAGE_NAMESPACE?=ghcr.io/binhnguyenduc
 IMAGE_NAME=argocd-image-updater
 IMAGE_TAG?=latest
 ifdef IMAGE_NAMESPACE
@@ -19,9 +19,10 @@ BUILD_DATE=$(shell date -u +'%Y-%m-%dT%H:%M:%SZ')
 
 LDFLAGS=
 
-RELEASE_IMAGE_PLATFORMS?=linux/amd64,linux/arm64
+# RELEASE_IMAGE_PLATFORMS?=linux/amd64,linux/arm64
+RELEASE_IMAGE_PLATFORMS?=linux/amd64
 
-VERSION_PACKAGE=github.com/argoproj-labs/argocd-image-updater/pkg/version
+VERSION_PACKAGE=github.com/binhnguyenduc/argocd-image-updater/pkg/version
 ifeq ($(IMAGE_PUSH), yes)
 DOCKERX_PUSH=--push
 else
